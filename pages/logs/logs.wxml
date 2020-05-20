@@ -1,0 +1,18 @@
+<!--logs.wxml-->
+<view class="game-score">
+  <text >分数: {{total}}</text>
+</view>
+<view class="game-box" bind:touchstart="startHandler" bind:touchend="endHandler">
+  <block  wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view class="box-row">
+      <block  wx:for="{{item}}" wx:for-item="subItem"  wx:for-index="subIndex" wx:key="subIndex">
+        <view class="row-item" style="--bg-color: {{2048 - (subItem * 20)}}" >
+          <text wx:if="{{subItem}}">{{subItem}}</text>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>
+<view class="btn-box">
+  <button class="mini-btn" bindtap="renew" type="primary" size="mini">重新开始</button>
+</view>

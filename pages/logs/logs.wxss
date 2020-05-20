@@ -1,0 +1,34 @@
+.game-score{
+  text-align: center;
+  font-size: 60rpx;
+  color:hsl(278, 77%, 80%);
+}
+.game-box{
+  width: 600rpx;
+  height: 600rpx;
+  background: #ccc;
+  margin: 10rpx auto;
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.box-row{
+  display: flex;
+  justify-content: space-around;
+}
+.row-item{
+  --bg-color: 20;
+  line-height: 120rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  transition:all 0.25s;
+  background: hsl(var(--bg-color), 78%, 80%);
+  font-weight: 600;
+}
+.btn-box{
+  margin-top: 100rpx;
+  text-align: center;
+}
