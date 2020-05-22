@@ -1,0 +1,6 @@
+<view class="game-box">
+  <view wx:for="{{pages}}" wx:for-item="item" wx:key="index" class="game-item" bindtap="goPage" data-item="{{item}}" style="--bg-color: {{item.color}}">
+    <image class="game-img" src="{{item.imgUrl}}"></image>
+    <text class="game-title">{{item.name}}</text>
+  </view>
+</view>

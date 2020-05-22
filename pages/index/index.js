@@ -1,18 +1,24 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import words from './words.js'
 Page({
   data: {
     motto: '欢迎来到我的世界!',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    word: ''
   },
   //事件处理函数
   bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+
+  },
+  changeWord () {
+    let index = Math.round(Math.random() * words.length)
+    let word = words[index]
+    this.setData({
+      word
     })
   },
   onLoad: function () {
@@ -43,8 +49,10 @@ Page({
       })
     }
   },
+  onShow: function () {
+    this.changeWord()
+  },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

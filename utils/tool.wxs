@@ -1,0 +1,13 @@
+var isInclude = function (list, value) {
+  if (!list || (list.constructor !== 'Array')){
+    return
+  }
+  return list.some(function (t){
+    return t === value
+  })
+};
+
+// 导出对外暴露的属性
+module.exports = {
+  isInclude: isInclude
+}

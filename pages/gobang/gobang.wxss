@@ -1,0 +1,113 @@
+/* pages/gobang/gobang.wxss */
+.gobang-title{
+  margin-top: 40rpx;
+  text-align: center;
+}
+.gobang-title text{
+  font-size: 40rpx;
+  font-weight: 600;
+  color: hsl(258, 65%, 73%);
+}
+.chessboard{
+  background: #d8b796;
+  position: relative;
+  padding: 12rpx;
+  user-select: none;
+  box-shadow: 2rpx 2rpx 10rpx #fff;
+  margin: 40rpx 10rpx;
+  box-sizing: border-box;
+}
+.gird-box{
+  display: grid;
+  margin: 0rpx auto;
+}
+
+.gird-box .gird-row{
+  display: grid;
+}
+/* 单元格 */
+.gird-row .gird-column {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.gird-row .gird-column .text {
+  position: relative;
+  z-index: 100;
+  font-size: 24rpx;
+  color: #999;
+}
+.gird-column::before {
+  content: "";
+  width: 92%;
+  height: 92%;
+  border-radius: 50%;
+  position: absolute;
+}
+/* 黑白子 */
+.gird-column.w:before {
+  background: #fff;
+  box-shadow: -2px -2px 6px #333 inset;
+}
+.gird-column.b:before {
+  background: #000;
+  box-shadow: 1px 2px 5px #ccc inset;
+}
+.gird-column.cur:before {
+  animation: flash 1s linear reverse infinite;
+}
+@keyframes flash {
+  0%,
+  100% {
+    box-shadow: 0px 0px 6px #999 inset, 0px 0px 8px 2px red;
+  }
+  50% {
+    box-shadow: 0px 0px 6px #999 inset, 0px 0px 1px 0px red;
+  }
+}
+/* 棋盘 */
+.gird-box.chessboard-top{
+  z-index: 999;
+  width: 700rpx;
+  height: 700rpx;
+  position: relative;
+  grid-template-rows: repeat(15, 6.66%);
+  /* border-top:1rpx solid #fff;
+  border-left:1rpx solid #fff; */
+}
+.gird-box.chessboard-top .gird-row{ 
+  grid-template-columns: repeat(15, 6.66%);
+  /* border-bottom:1rpx solid #fff; */
+}
+ /* .gird-column {
+  border-right:1rpx solid #fff;
+ } */
+
+ .gird-box.chessboard-bottom{
+    border-top: 1px solid #333;
+    border-left: 1px solid #333;
+    width: 654rpx;
+    height: 654rpx;
+    position: absolute;
+    z-index: 1;
+    top: 38rpx;
+    left: 38rpx;
+    grid-template-rows: repeat(14, 7.14%);
+ }
+.gird-box.chessboard-bottom .gird-row {
+  grid-template-columns: repeat(14, 7.14%);
+
+}
+.gird-box.chessboard-bottom .gird-row .gird-column {
+  border-bottom: 1px solid #333;
+  border-right: 1px solid #333;
+}
+ .btn-box{
+  margin-top: 100rpx;
+  text-align: center;
+}
+  

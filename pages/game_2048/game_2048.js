@@ -22,42 +22,42 @@ Page({
   },
   onLoad: function () {
     this.randomBase()
-    
+
   },
   // 重新开始
-  renew () {
+  renew() {
     let list = [
-      [0,0,0,0],
-      [0,0,0,0],
-      [0,0,0,0],
-      [0,0,0,0]
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
     ]
     this.setData({
-      list:list
+      list: list
     })
     this.randomBase()
   },
   // 随机生成2, 4, 加入到list
-  randomBase () {
+  randomBase() {
     let arr = [2, 4]
     let num = arr[Math.round(Math.random())]
     let empty = []
     let list = this.data.list
     list.forEach((item, i) => {
       item.forEach((subItem, j) => {
-        if(list[i][j] === 0){
+        if (list[i][j] === 0) {
           empty.push([i, j])
         }
       })
     })
     let len = empty.length
-    if(len < 1) {
-      if(!this.isSame(this.data.list)){
+    if (len < 1) {
+      if (!this.isSame(this.data.list)) {
         let timer = this.data.timer
         if (Date.now() - timer > 3000) {
           wx.showToast({
             title: '游戏结束',
-            icon: 'error',
+            icon: 'none',
             duration: 2000
           })
           this.setData({
@@ -81,36 +81,36 @@ Page({
     })
   },
   // 合并
-  merge () {
+  merge() {
     let list = JSON.parse(JSON.stringify(this.data.list))
     let move = this.data.move
-    if (move.x === 1){ // 右  需转两下
+    if (move.x === 1) { // 右  需转两下
       list = this.rotateMatrix(list, 2)
-    } else if (move.y === 1){ // 上 需转三下
+    } else if (move.y === 1) { // 上 需转三下
       list = this.rotateMatrix(list, 3)
     } else if (move.y === -1) { // 下 需转一下
       list = this.rotateMatrix(list, 1)
     }
 
-    for(let x = 0; x < 4; x++){
+    for (let x = 0; x < 4; x++) {
       let item = list[x]
       // 把有值得靠边
-      for(let i = 0; i < 3; i++){
+      for (let i = 0; i < 3; i++) {
         let k = i + 1
-        if(!item[i]){
-          while(!list[x][k] && k < 4){
+        if (!item[i]) {
+          while (!list[x][k] && k < 4) {
             k++
           }
-          if (k < 4){
+          if (k < 4) {
             list[x][i] = list[x][k]
             list[x][k] = 0
           }
         }
       }
       // 把相同的合并
-      for(let i = 0; i < 3; i++){
+      for (let i = 0; i < 3; i++) {
         let j = i + 1
-        if(item[i] === item[j]){
+        if (item[i] === item[j]) {
           item[i] = item[i] * 2
           item[j] = 0
         } else {
@@ -118,13 +118,13 @@ Page({
         }
       }
       // 合并完后把有值得靠边
-      for(let i = 0; i < 3; i++){
+      for (let i = 0; i < 3; i++) {
         let k = i + 1
-        if(!item[i]){
-          while(!list[x][k] && k < 4){
+        if (!item[i]) {
+          while (!list[x][k] && k < 4) {
             k++
           }
-          if (k < 4){
+          if (k < 4) {
             list[x][i] = list[x][k]
             list[x][k] = 0
           }
@@ -133,9 +133,9 @@ Page({
     }
 
     // 再转回来
-    if (move.x === 1){ // 右  需转两下
+    if (move.x === 1) { // 右  需转两下
       list = this.rotateMatrix(list, 2)
-    } else if (move.y === 1){ // 上 需转1下
+    } else if (move.y === 1) { // 上 需转1下
       list = this.rotateMatrix(list, 1)
     } else if (move.y === -1) { // 下 需转三下
       list = this.rotateMatrix(list, 3)
@@ -148,17 +148,17 @@ Page({
     }, 500)
   },
   // 旋转矩阵
-  rotateMatrix (list, num) {
-    for(let k = 0; k < num; k++){
+  rotateMatrix(list, num) {
+    for (let k = 0; k < num; k++) {
       rotate()
     }
     // 顺时针旋转矩阵90°
-    function rotate () {
-      for(let i = 0; i < 2; i++){
+    function rotate() {
+      for (let i = 0; i < 2; i++) {
         [list[i], list[3 - i]] = [list[3 - i], list[i]]
       }
-      for(let i = 0; i < 4; i++){
-        for(let j = 0; j < i; j++){
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < i; j++) {
           [list[i][j], list[j][i]] = [list[j][i], list[i][j]]
         }
       }
@@ -166,27 +166,27 @@ Page({
     return list
   },
   // 判断矩阵每个元素相邻是否有相等的
-  isSame (list) {
-    for(let i = 0; i < 4; i++){
-      for(let j = 0; j < 4; j++){
-        if((i+1 < 4 && list[i][j] === list[i + 1][j]) || (j + 1 < 4 && list[i][j] ===list[i][j + 1])){
+  isSame(list) {
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+        if ((i + 1 < 4 && list[i][j] === list[i + 1][j]) || (j + 1 < 4 && list[i][j] === list[i][j + 1])) {
           return true
         }
       }
     }
     return false
   },
-  startHandler (e) {
+  startHandler(e) {
     let x = e.touches[0] && e.touches[0].pageX || 0
     let y = e.touches[0] && e.touches[0].pageY || 0
     this.setData({
-      coord :{
+      coord: {
         x,
         y
       }
     })
   },
-  endHandler (e) {
+  endHandler(e) {
     let x = e.changedTouches[0] && e.changedTouches[0].pageX || 0
     let y = e.changedTouches[0] && e.changedTouches[0].pageY || 0
     let coord = this.data.coord
@@ -197,7 +197,7 @@ Page({
     // 是否正方向
     let isJust = (isX && xDiff < 0) || (!isX && yDiff > 0)
     this.setData({
-      move :{
+      move: {
         x: isX ? (isJust ? 1 : -1) : 0,
         y: !isX ? (isJust ? 1 : -1) : 0
       }

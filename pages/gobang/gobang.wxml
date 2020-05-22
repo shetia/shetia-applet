@@ -1,0 +1,52 @@
+<!--pages/gobang/gobang.wxml-->
+<wxs module="tool" src="../../utils/tool.wxs"/>
+<view class="gobang-title">
+  <radio-group bindchange="radioChange">
+    <label class="radio">
+      <radio value="1" checked="true"/>人机对弈
+    </label>
+    <label class="radio">
+      <radio value="2" />双人博弈
+    </label>
+  </radio-group>
+</view>
+<view class="chessboard">
+  <!-- 棋盘 -->
+  <view class="gird-box chessboard-top"> 
+     <block wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+     <!-- 行 -->
+        <view class="gird-row">
+            <block wx:for="{{item}}"  wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex">
+              <!-- 列 -->
+                <view 
+                  catchtap="cellHandler" 
+                  data-index="{{index}}" 
+                  data-sub-index="{{subIndex}}"  
+                  data-win-list="{{winList}}"
+                  class="gird-column {{subItem && subItem % 2 == 0 ? 'w' : ''}} {{subItem && subItem % 2 == 1 ? 'b' :''}} {{subItem && subItem === num || tool.isInclude(winList,subItem) ? 'cur' : ''}}">
+                  <text class="text" wx:if="{{subItem}}">{{ subItem }}</text>
+                </view>
+            </block>
+        </view>
+     </block>
+  </view>
+  <!-- 棋网 -->
+  <view class="gird-box chessboard-bottom"> 
+     <block wx:for="{{list1}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+     <!-- 行 -->
+        <view class="gird-row">
+            <block wx:for="{{item}}"  wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex">
+              <!-- 列 -->
+                <view 
+                  data-index="{{index}}" 
+                  data-sub-index="{{subIndex}}"                  
+                  class="gird-column">
+                </view>
+            </block>
+        </view>
+     </block>
+  </view>
+</view>
+<view class="btn-box">
+  <button class="mini-btn" bindtap="init" type="default" size="mini">重新开始</button>
+</view>

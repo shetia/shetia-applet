@@ -1,4 +1,10 @@
 /**index.wxss**/
+.say-hi{
+  font-size: 32rpx;
+  line-height: 64rpx;
+  padding: 0 48rpx;
+  font-family: 幼圆;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -17,5 +23,5 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 100rpx;
 }

@@ -1,4 +1,7 @@
 /**app.wxss**/
+page {
+  font-family: 幼圆;
+}
 .container {
   height: 100%;
   display: flex;

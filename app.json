@@ -1,15 +1,17 @@
 {
-  "pages":[
-    "pages/logs/logs",
-    "pages/index/index"
+  "pages": [
+    "pages/index/index",
+    "pages/games/games",
+    "pages/game_2048/game_2048",
+    "pages/gobang/gobang"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "tabBar":{
+  "tabBar": {
     "color": "#62738d",
     "selectedColor": "#1aad19",
     "list": [
@@ -20,7 +22,7 @@
         "selectedIconPath": "imgs/home_active.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/games/games",
         "text": "游戏",
         "iconPath": "imgs/game_gray.png",
         "selectedIconPath": "imgs/game_active.png"

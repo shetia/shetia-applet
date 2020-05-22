@@ -1,0 +1,29 @@
+/* pages/games/games.wxss */
+.game-box{
+  --bg-color: 20;
+  --txt-color: calc(var(--bg-color) * 4);
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.game-item{
+  height: 120rpx;
+  background: hsl(var(--bg-color), 75%, 80%);
+  padding: 24rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+.game-title{
+  font-size: 80rpx;
+  font-weight: 600;
+  font-family: 华文彩云;
+  color: hsl(var(--txt-color), 50%, 60%);
+}
+.game-img{
+  width: 120rpx;
+  height: 120rpx;
+}

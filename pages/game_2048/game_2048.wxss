@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding: 12rpx;
 }
 .box-row{
   display: flex;
@@ -27,6 +28,7 @@
   transition:all 0.25s;
   background: hsl(var(--bg-color), 78%, 80%);
   font-weight: 600;
+  font-size: 50rpx;
 }
 .btn-box{
   margin-top: 100rpx;
