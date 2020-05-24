@@ -14,5 +14,5 @@
   </block>
 </view>
 <view class="btn-box">
-  <button class="mini-btn" bindtap="renew" type="primary" size="mini">重新开始</button>
+  <button class="new-btn" bindtap="renew" type="primary" size="mini">重新开始</button>
 </view>

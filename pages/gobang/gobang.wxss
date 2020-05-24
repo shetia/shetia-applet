@@ -2,6 +2,14 @@
 .gobang-title{
   margin-top: 40rpx;
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+.new-btn{
+  margin: 0;
+  border-radius: 50rpx;
+  background: #d8b796 !important;
+  color: #fff;
 }
 .gobang-title text{
   font-size: 40rpx;
@@ -106,8 +114,5 @@
   border-bottom: 1px solid #333;
   border-right: 1px solid #333;
 }
- .btn-box{
-  margin-top: 100rpx;
-  text-align: center;
-}
+
   

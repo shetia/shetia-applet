@@ -1,14 +1,54 @@
 /**index.wxss**/
+.banner{
+  --bg-color: 160;
+  width: 90%;
+  height: 240rpx;
+  background: hsl(var(--bg-color), 67%, 88%);
+  display: flex;
+  align-items: center;
+  margin: 10rpx auto;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+}
+.left-img{
+  width: 160rpx;
+  height: 160rpx;
+  filter: brightness(200%) hue-rotate(40deg) saturate(50%) opacity(60%);
+}
+.banner-img{
+  width: 100%;
+  height: 240rpx;
+  filter: brightness(120%) opacity(80%);
+}
+.banner-right{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: #666;
+}
+.banner-right text{
+  flex-shrink: 0;
+  width: 220rpx;
+  line-height: 60rpx;
+}
 .say-hi{
   font-size: 32rpx;
   line-height: 64rpx;
   padding: 0 48rpx;
   font-family: 幼圆;
+  text-indent:60rpx;
 }
 .userinfo {
   display: flex;
   flex-direction: column;
+  width: 90%;
+  height: 240rpx;
+  background: hsl(60, 67%, 88%);
   align-items: center;
+  margin: 10rpx auto;
+  border-radius: 10rpx;
 }
 
 .userinfo-avatar {
@@ -23,5 +63,33 @@
 }
 
 .usermotto {
-  margin-top: 100rpx;
+  margin-top: 40rpx;
+}
+.usermotto-title{
+  text-align: center;
+  font-weight: 600;
+  line-height: 60rpx;
+}
+/* 九宫格 */
+.sudoku{
+  display:grid;
+  grid-template-columns: repeat(3, 33.33%);
+}
+.sudoku-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border:1px solid #ccc; */
+  height: 200rpx;
+}
+.sudoku-item__img{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.sudoku-item__text{
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 10rpx;
 }

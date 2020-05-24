@@ -2,12 +2,36 @@
 page {
   font-family: 幼圆;
 }
-.container {
-  height: 100%;
+.article{
+  padding: 24rpx;
+}
+.article .title{
+  font-weight: 600;
+  line-height: 80rpx;
+  font-size: 36rpx;
+}
+.article .content{
+  line-height: 48rpx;
+  font-size: 32rpx;
+}
+.article-main{
+  margin-top: 30rpx;
+}
+/* 底部按钮 */
+.bottom-btn{
+  position:fixed;
+  bottom:0rpx;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+  width: 100%;
+  height: 100rpx;
+}
+.bottom-btn button{
+  background: #afa4f4;
+  color: #fff;
+}
+.article-main button{
+  background: #afa4f4;
+  color: #fff;
+}

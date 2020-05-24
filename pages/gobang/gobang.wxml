@@ -1,12 +1,13 @@
 <!--pages/gobang/gobang.wxml-->
 <wxs module="tool" src="../../utils/tool.wxs"/>
 <view class="gobang-title">
+  <button class="new-btn" bindtap="init" size="mini">新游戏</button>
   <radio-group bindchange="radioChange">
     <label class="radio">
-      <radio value="1" checked="true"/>人机对弈
+      <radio value="1" color="#d8b796" checked="true"/>人机对弈
     </label>
     <label class="radio">
-      <radio value="2" />双人博弈
+      <radio value="2"  color="#d8b796" />双人博弈
     </label>
   </radio-group>
 </view>
@@ -46,7 +47,4 @@
         </view>
      </block>
   </view>
-</view>
-<view class="btn-box">
-  <button class="mini-btn" bindtap="init" type="default" size="mini">重新开始</button>
 </view>

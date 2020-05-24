@@ -18,11 +18,11 @@ Page({
       x: 0,
       y: 0
     },
-    timer: Date.now()
+    timer: Date.now(),
+    isReach: false
   },
   onLoad: function () {
     this.randomBase()
-
   },
   // 重新开始
   renew() {
@@ -33,14 +33,16 @@ Page({
       [0, 0, 0, 0]
     ]
     this.setData({
-      list: list
+      list: list,
+      isReach: false,
+      total: 0
     })
     this.randomBase()
   },
   // 随机生成2, 4, 加入到list
   randomBase() {
     let arr = [2, 4]
-    let num = arr[Math.round(Math.random())]
+    let num = arr[Math.round(Math.random() * Math.random() + 0.1)]
     let empty = []
     let list = this.data.list
     list.forEach((item, i) => {
@@ -143,6 +145,16 @@ Page({
     this.setData({
       list: list
     })
+    if (!this.data.isReach && this.isWin(list) ) {
+      wx.showToast({
+        title: '达到2048!',
+        icon: 'success',
+        duration: 5000
+      })
+      this.setData({
+        isReach: true
+      })
+    }
     setTimeout(() => {
       this.randomBase()
     }, 500)
@@ -203,5 +215,14 @@ Page({
       }
     })
     this.merge()
+  },
+  // 最大那个数是否为2048
+  isWin (list) {
+    let max = 0
+    list.forEach(item => {
+      let newMax = Math.max(...item)
+      max = Math.max(max, newMax)
+    })
+    return max == 2048
   }
 })

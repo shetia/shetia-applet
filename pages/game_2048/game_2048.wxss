@@ -34,3 +34,8 @@
   margin-top: 100rpx;
   text-align: center;
 }
+.new-btn{
+  margin: 0;
+  border-radius: 50rpx;
+  background: hsl(258, 65%, 73%) !important;
+}

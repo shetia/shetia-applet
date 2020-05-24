@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/games/games",
     "pages/game_2048/game_2048",
-    "pages/gobang/gobang"
+    "pages/gobang/gobang",
+    "pages/funtime/funtime",
+    "pages/mind/mind",
+    "pages/lantern/lantern"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -90,24 +90,13 @@ Page({
       myWin[i] = 0;
       computerWin[i] = 0;
     }
-    let myScore = []
-    let computerScore = []
-    for (let i = 0; i < 15; i++) {
-      myScore[i] = []
-      computerScore[i] = []
-      for (let j = 0; j < 15; j++) {
-        myScore[i][j] = 0;
-        computerScore[i][j] = 0;
-      }
-    }
+
     this.setData({
       list,
       wins,
       count,
       myWin,
       computerWin,
-      myScore,
-      computerScore,
       isWin: false,
       num: 0,
       winList: []
@@ -192,8 +181,8 @@ Page({
   },
   // 机器人下
   computerAI() {
-    let myScore = this.data.myScore; //我方分数
-    let computerScore = this.data.computerScore; //计算机分数
+    let myScore = []; //我方分数
+    let computerScore = []; //计算机分数
     let max = 0; //最大分数
     let x = 0, y = 0; //最大分数点
     let count = this.data.count
@@ -202,7 +191,14 @@ Page({
     let list = this.data.list
     let num = this.data.num
     let computerWin = this.data.computerWin
-
+    for (let i = 0; i < 15; i++) {
+      myScore[i] = []
+      computerScore[i] = []
+      for (let j = 0; j < 15; j++) {
+        myScore[i][j] = 0;
+        computerScore[i][j] = 0;
+      }
+    }
     for (let i = 0; i < 15; i++) {
       for (let j = 0; j < 15; j++) {
         if (list[i][j] == 0) { //每个空闲点上进行计算分数
@@ -224,7 +220,7 @@ Page({
               } else if (computerWin[k] == 2) {
                 computerScore[i][j] += 420;
               } else if (computerWin[k] == 3) {
-                computerScore[i][j] += 2001;
+                computerScore[i][j] += 2100;
               } else if (computerWin[k] == 4) {
                 computerScore[i][j] += 20000;
               }
@@ -274,7 +270,7 @@ Page({
           })
           this.checkWin(list)  // 检测哪5个连珠
           wx.showToast({
-            title: '游戏结束! 白获胜',
+            title: '游戏结束! 白棋获胜',
             icon: 'none',
             duration: 2000
           })

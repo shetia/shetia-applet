@@ -1,16 +1,48 @@
 <!--index.wxml-->
-
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <view class="say-hi" wx:if="userInfo.nickName">
-      您好, {{userInfo.nickName}}! {{word}}
+<!-- banner -->
+<swiper indicator-dots="2"
+  autoplay="true" interval="10000" duration="1000">
+    <swiper-item>
+      <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <block wx:else>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="banner" wx:if="{{weatherInfo}}" style="--bg-color:{{bannerbg}}">
+        <view class="banner-left" >
+          <image class="left-img" wx:if="{{weatherInfo.cond_code}}" src="../../imgs/cond-icon-heweather/{{weatherInfo.cond_code}}.png"></image>
+        </view>
+        <view class="banner-right" >
+          <text>天气: {{weatherInfo.cond_txt}}</text>
+          <text>气温: {{weatherInfo.fl}}℃</text>
+          <text>湿度: {{weatherInfo.hum}}%rh</text>
+          <text>风向: {{weatherInfo.wind_dir}}</text>
+          <text>风力: {{weatherInfo.wind_sc}}级</text> 
+          <text>降水量: {{weatherInfo.pcpn}}ml</text> 
+        </view>
+      </view>
+      <view class="banner" wx:else>
+          <image class="banner-img"  src="../../imgs/luoxiaohei.png"></image>
+      </view>
+    </swiper-item>
+</swiper>
+<!-- 九宫格 -->
+<view class="sudoku">
+  <block wx:for="{{sudoku}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view class="sudoku-item" bindtap="goPage" data-url="{{item.url}}">
+      <image class="sudoku-item__img" src="{{item.img}}"></image>
+      <text class="sudoku-item__text">{{item.text}}</text>
     </view>
+  </block>
+</view>
+<!-- 温馨语录 -->
+<view class="usermotto">
+  <view class="usermotto-title">温馨语录</view>
+  <view class="say-hi">
+    {{word}}
   </view>
 </view>
