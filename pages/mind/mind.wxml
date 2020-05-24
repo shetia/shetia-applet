@@ -1,0 +1,20 @@
+<!--pages/mind/mind.wxml-->
+<view class="article">
+  <view class="title">
+    <text >{{word.title}}</text>
+  </view>
+  <view class="article-main">
+    <button bindtap="show" size="mini">{{btnWord}}</button>
+    <view class="content" wx:if="{{isShow}}">
+      <text >答案: {{word.content}}</text>
+      <view>
+        <text>提示: {{word.tip}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="bottom-btn">
+  <button size="mini" bindtap="pre">上一个</button>
+  <button size="mini" bindtap="next">下一个</button>
+</view>
+

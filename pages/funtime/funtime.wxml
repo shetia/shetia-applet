@@ -1,0 +1,13 @@
+<!--pages/funtime/funtime.wxml-->
+<view class="article">
+  <view class="title">
+    <text >{{word.title}}</text>
+  </view>
+  <view class="content">
+    <text >{{word.content}}</text>
+  </view>
+</view>
+<view class="bottom-btn">
+  <button size="mini" bindtap="pre">上一个</button>
+  <button size="mini" bindtap="next">下一个</button>
+</view>
