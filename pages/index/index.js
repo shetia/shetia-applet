@@ -136,7 +136,6 @@ Page({
         // },
       //get_poi: 1, //是否返回周边POI列表：1.返回；0不返回(默认),非必须参数
       success: function(res) {//成功后的回调
-        console.log(res.result, 'huoqi');
         var resData = res.result;
         let city = resData.ad_info.city
         _this.getWeather(city)
@@ -160,7 +159,7 @@ Page({
         key: '8721ebd85f64465bb719536cc5c25146'
       },
       success(res){
-        console.log(res, '天气')
+        // console.log(res, '天气')
         let resData = res.data.HeWeather6[0] || {}
         let info = resData && resData.now || {}
         _this.setData({

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/bird/brid",
     "pages/index/index",
     "pages/games/games",
     "pages/game_2048/game_2048",
