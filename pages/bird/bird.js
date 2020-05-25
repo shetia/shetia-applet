@@ -131,9 +131,9 @@ Page({
             return true
           }
           // 统计分数
-          if(left == 0){
+          if(parseInt(left) <= 0){
             this.setData({
-              score: this.data.score +1
+              score: this.data.score + 1
             })
           }
       }
