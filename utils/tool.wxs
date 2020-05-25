@@ -6,8 +6,17 @@ var isInclude = function (list, value) {
     return t === value
   })
 };
-
+// 柱子的位置
+var pillarX =  function(item, total, max) {
+  var last = max - item.x
+  var x = total - last
+  if(x < -38){
+    x = max + x
+  }
+  return x
+}
 // 导出对外暴露的属性
 module.exports = {
-  isInclude: isInclude
+  isInclude: isInclude,
+  pillarX: pillarX
 }

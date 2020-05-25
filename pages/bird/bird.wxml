@@ -1,0 +1,21 @@
+<!--pages/bird/brid.wxml-->
+<wxs module="tool" src="../../utils/tool.wxs"/>
+<view class="scene {{isScroll ? 'bgscroll' : ''}}" catchtap="jump" style="background-image: url({{skybg}});">
+<!-- 计分 -->
+<text class="score">得分: {{score}}</text>
+  <!-- 小鸟 -->
+  <view class="bird {{!isStart ? 'ready' : ''}}"  style="background-image: url({{birdbg}}); top: {{bird.top}}rpx; left: {{bird.left}}" ></view>
+  <!-- 柱子 -->
+  <block wx:for="{{pillarList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view wx:if="{{isStart}}" class="pillar" style="left: {{tool.pillarX(item, total, max)}}rpx; --up-height: {{item.randomH}}rpx;}" data-random="{{item.randomH}}">
+       <view class="pillar-up" style="background-image: url({{pillarup}})"></view>
+       <view  class="pillar-down" style="background-image: url({{pillardown}})"></view>
+    </view>
+  </block>
+  <!-- 遮罩层 -->
+  <view class="mask" wx:if="{{!isStart || end}}" catchtouchmove="preventTouchMove" >
+     <button wx:if="{{!isStart}}" type="primary" catchtap="start" size="mini">开始游戏</button>
+     <text wx:if="{{end}}" style="background: {{pillarup}}" class="game-over">游戏结束</text>
+    <button wx:if="{{end}}" style="background: {{pillardown}}" type="warn" catchtap="again" size="mini">重新开始</button>
+  </view>
+</view>

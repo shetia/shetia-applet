@@ -1,7 +1,0 @@
-<!--pages/bird/brid.wxml-->
-<view class="scene {{isScroll ? 'bgscroll' : ''}}" bindtap="jump" style="background-image: url({{skybg}});">
-<!-- 小鸟 -->
-  <view class="bird"  style="background-image: url({{birdbg}}); top: {{bird.top}}rpx; left: {{bird.left}}" ></view>
-  <button bindtap="start" size="mini">开始</button>
-  <button bindtap="stop" size="mini">停止</button>
-</view>

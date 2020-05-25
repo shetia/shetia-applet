@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/bird/brid",
     "pages/index/index",
     "pages/games/games",
     "pages/game_2048/game_2048",
     "pages/gobang/gobang",
     "pages/funtime/funtime",
     "pages/mind/mind",
-    "pages/lantern/lantern"
+    "pages/lantern/lantern",
+    "pages/bird/bird"
   ],
   "window": {
     "backgroundTextStyle": "light",
