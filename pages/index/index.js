@@ -23,7 +23,6 @@ Page({
   },
   goPage(e){
     let url = e.currentTarget.dataset.url || ''
-    console.log(e)
     wx.navigateTo({
       url
     })
