@@ -23,13 +23,13 @@
   z-index: 3;
 }
 .scene.bgscroll{
-  animation: scrollbg 500s linear infinite normal;
+  animation: scrollbg 5000s linear infinite normal;
 }
 @keyframes scrollbg{
   0% {background-position-x:0;}
   /* 50% {background-position-x: -100vw;} */
   100% {
-    background-position-x: -10000vw;
+    background-position-x: -100000vw;
   }
 }
 
@@ -94,15 +94,16 @@
 .pillar-up{
   width: 100%;
   height: var(--up-height);
-  background-size: 98%;
-  background-position: bottom;
+  background-size: cover;
+  background-position: center bottom;
   background-repeat:no-repeat;
-  background-color: #8fb34d;
+  /* background-color: #8fb34d; */
 }
 .pillar-down{
   width: 100%;
   height: calc(100% - var(--up-height) - 150rpx);
-  background-size: 98%;
+  background-size: cover;
+  background-position: center top;
   background-repeat:no-repeat;
-  background-color: #8fb34d;
+  /* background-color: #8fb34d; */
 }

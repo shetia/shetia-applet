@@ -13,7 +13,7 @@ let birds = {
 }
 let flying = true
 let gameloop = null
-let max = 2000
+let max = 4200
 Page({
   /**
    * 页面的初始数据
@@ -60,17 +60,27 @@ Page({
       y: 130
     }
     pillarList = [
-      {x: 200,  randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 200,  randomH: 50 + Math.ceil(Math.random() * 150)},
       {x: 400,  randomH: 50 + Math.ceil(Math.random() * 120)},
-      {x: 600,  randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 600,  randomH: 50 + Math.ceil(Math.random() * 150)},
       {x: 800, randomH: 50 + Math.ceil(Math.random() * 120)},
-      {x: 1000, randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 1000, randomH: 50 + Math.ceil(Math.random() * 150)},
       {x: 1200, randomH: 50 + Math.ceil(Math.random() * 120)},
-      {x: 1400, randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 1400, randomH: 50 + Math.ceil(Math.random() * 150)},
       {x: 1600, randomH: 50 + Math.ceil(Math.random() * 120)},
-      {x: 1800, randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 1800, randomH: 50 + Math.ceil(Math.random() * 150)},
       {x: 2000, randomH: 50 + Math.ceil(Math.random() * 120)},
-
+      {x: 2200, randomH: 50 + Math.ceil(Math.random() * 150)},
+      {x: 2400, randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 2600, randomH: 50 + Math.ceil(Math.random() * 150)},
+      {x: 2800, randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 3000, randomH: 50 + Math.ceil(Math.random() * 150)},
+      {x: 3200, randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 3400, randomH: 50 + Math.ceil(Math.random() * 150)},
+      {x: 3600, randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 3800, randomH: 50 + Math.ceil(Math.random() * 150)},
+      {x: 4000, randomH: 50 + Math.ceil(Math.random() * 120)},
+      {x: 4200, randomH: 50 + Math.ceil(Math.random() * 150)},
     ]
     max = pillarList[pillarList.length - 1].x
     this.setData({
@@ -101,7 +111,7 @@ Page({
         birdy += birds.stepy
         birds.stepy += 1
         total -= 5    // 柱子移动
-          if(total <= -40){
+        if(total <= -40){
             total = max - 40
         }
       }
@@ -126,14 +136,14 @@ Page({
     for(let item of pillarList){
       let last = max - item.x
       let left = total - last
-      if(left < 80 && left >= 0){
+      if(left < 80 && left >= 10){
           let up = item.randomH
           if(up >= y || up + 120 <= y){
             return true
           }
       }
       // 统计分数
-      if(left == 0){
+      if(left == 10){
         this.setData({
           score: this.data.score + 1
         })
