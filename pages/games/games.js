@@ -8,7 +8,7 @@ Page({
     pages: [
       { name: '2048', url: '/pages/game_2048/game_2048', color: 40, imgUrl:'../../imgs/2048.png'},
       { name: '五子棋', url: '/pages/gobang/gobang', color: 190, imgUrl: '../../imgs/gobang.png' },
-      { name: 'Flappy Bird', url: '/pages/bird/bird', color: 80, imgUrl: '../../imgs/bird.png' },
+      { name: '像素鸟', url: '/pages/bird/bird', color: 80, imgUrl: '../../imgs/bird.png' },
     ]
   },
 
@@ -49,7 +49,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**

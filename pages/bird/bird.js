@@ -52,13 +52,13 @@ Page({
     })
   },
   init(){
+    flying = true
     birds = {
       stepx: 52,
       stepy: 0,
       x: 49,
       y: 130
     }
-    flying = true
     pillarList = [
       {x: 200,  randomH: 50 + Math.ceil(Math.random() * 120)},
       {x: 400,  randomH: 50 + Math.ceil(Math.random() * 120)},
@@ -72,6 +72,7 @@ Page({
       {x: 2000, randomH: 50 + Math.ceil(Math.random() * 120)},
 
     ]
+    max = pillarList[pillarList.length - 1].x
     this.setData({
       bird: {
         left: birds.x + '%',
@@ -100,8 +101,8 @@ Page({
         birdy += birds.stepy
         birds.stepy += 1
         total -= 5    // 柱子移动
-          if(total < -38){
-            total = max - 38
+          if(total <= -40){
+            total = max - 40
         }
       }
       if(birdy < -10 || birdy > maxHeight || this.isCrash(total)){
@@ -130,12 +131,12 @@ Page({
           if(up >= y || up + 120 <= y){
             return true
           }
-          // 统计分数
-          if(parseInt(left) <= 0){
-            this.setData({
-              score: this.data.score + 1
-            })
-          }
+      }
+      // 统计分数
+      if(left == 0){
+        this.setData({
+          score: this.data.score + 1
+        })
       }
     }
      return false
@@ -155,7 +156,6 @@ Page({
   jump(){
     birds.stepy = -10
   },
-  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -181,7 +181,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    clearInterval(gameloop)
   },
 
   /**
